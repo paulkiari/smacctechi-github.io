@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signup Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url(smacclogo.jpg);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 50%;
+      margin: 0 auto;
+      padding: 20px;
+      background-image:url(smacclogo.jpg);
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #code-timer {
+      font-size: smaller;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="step1">
+      <h1>Welcome</h1>
+      <p>Please enter your email or phone number to continue.</p>
+      <form id="step1-form">
+        <input type="text" id="email-phone" placeholder="Email or Phone Number" required>
+        <button type="submit">Next</button>
+      </form>
+    </div>
+
+    <div id="step2" style="display: none;">
+      <h1>Verification Code</h1>
+      <p>Please enter the 4-digit code sent to your email or phone number.</p>
+      <p id="code-timer"></p>
+      <form id="step2-form">
+        <input type="text" id="verification-code" placeholder="Verification Code" required>
+        <button type="submit">Verify</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('step1-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const inputValue = document.getElementById('email-phone').value.trim();
+      let isValid = false;
+
+      if (isValidEmail(inputValue)) {
+        isValid = true; // Valid email
+      } else if (isValidPhone(inputValue)) {
+        isValid = true; // Valid phone number
+      } else {
+        alert('Invalid email or phone number.');
+      }
+
+      if (isValid) {
+        // Handle form submission, e.g., send email/phone number to server
+        // and show the second step
+        document.getElementById('step1').style.display = 'none';
+        document.getElementById('step2').style.display = 'block';
+
+        // Start code timer (assuming you have a server-side mechanism for sending the code and setting the timer)
+        startCodeTimer();
+      }
+    });
+
+    function isValidEmail(email) {
+      const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[gmail.com]+$/;
+      return regex.test(email);
+    }
+
+    function isValidPhone(phone) {
+      const regex = /^\d{10}$/; // Matches exactly 10 digits
+      return regex.test(phone);
+    }
+
+    let codeTimer;
+
+    function startCodeTimer() {
+      let secondsRemaining = 60; // 1 minute
+
+      codeTimer = setInterval(() => {
+        secondsRemaining--;
+        document.getElementById('code-timer').textContent = `Code valid for ${secondsRemaining} seconds`;
+
+        if (secondsRemaining === 0) {
+          clearInterval(codeTimer);
+          alert('Code expired. Please request a new code.');
+          // Handle code expiration, e.g., redirect to step 1 or display an error message
+        }
+      }, 1000);
+    }
+
+    document.getElementById('step2-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      // Handle verification code submission, e.g., send code to server for validation
+      // and proceed to the next step (e.g., account creation)
+      // You can add success/failure messages here
+      alert('Verification successful!');
+      clearInterval(codeTimer); // Stop the timer on successful verification
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+header {
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color:rgb(211, 211, 211);
+    z-index: 1;
+}
+.word1 {
+  color:rgb(55, 55, 59);
+  font-weight: bolder;
+}
+
+.word2 {
+  color: brown; 
+  font-weight: bolder;
+}
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-container input[type="text"] {
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 60%;
+  margin-top: 5px;
+}
+.search-container input[type="text"]:focus {
+  outline: none;
+  border-color:black;
+}
+.menu-icon {
+  cursor: pointer;
+}
+
+.popup-menu {
+  display: none;
+  position: absolute;
+  background-color:lightgray;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+.popup-menu ul li a {
+  color: black;
+}
+.popup-menu.active {
+  display: block;
+}
+body {
+  background-image: url('smacclogo.jpg');
+  body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+  }
+}
+.icons a {
+    text-decoration: none;
+    color: black;
+    margin-right: 10px;
+}
+
+.icons .icon {
+    font-size: 20px;
+}.sidebar {
+  background-color: #f0f0f0;
+  padding: 20px;
+  width: 50%;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+  display: block; /* Make links block-level for full width */
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+  }
+}  a:hover {
+  background-color:white;
+  color: black;
+  position: relative;
+  left: 2px;
+  top: 2px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+.category-list {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 10px; /* Adjust spacing as needed */
+}
+
+.category {
+  text-align: center;
+  color: #333;
+}
+
+.category img {
+  width: 100px; /* Adjust image size as needed */
+  height: 100px;
+}
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+    box-shadow: 10px 10px 15px rgba(18, 219, 52, 0.5),
+                -10px -10px 15px rgba(0, 0, 0, 0.5);
+}
+
+.category {
+  text-align: center;
+  margin: 20px;
+  background-color:orange;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.category img {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+}
+h4 {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+/* Basic styling */
+body {
+  background-image: url(smacclogo.jpg);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  box-shadow: #ccc;
+}
+.product img {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+}
+
+.product {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  background-color: orange;
+  border-radius: 8px;
+}
+.product button {
+  /* Basic styling */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  
+  /* Hover effect */
+  transition: background-color 0.3s ease-in-out;
+}
+
+.product .add-to-cart {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.product .add-to-cart:hover {
+  background-color: #3e8e41;
+}
+
+.product .buy-now {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+.product .buy-now:hover {
+  background-color: #d32f2f;
+}
+
+.cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #f0f0f0;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cart h2 {
+  margin-bottom: 15px;
+}
+
+.cart-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-items li {
+  margin-bottom: 10px;
+}
+
+.total {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.checkout, .hide-cart {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hide-cart {
+  background-color: #ccc;
+  color: #333;
+}
+
+.cart.active {
+  transform: translateX(0);
+}
+
+.cart-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-item .quantity {
+  width: 30px;
+  text-align: center;
+}
+
+footer {
+  background-color: darkgray;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.footer-section h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  font-size: 14px;
+}
+
+.footer-section a {
+  color: #333;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.footer-section a:hover {
+  color: #007bff;
+}
+
+.copyright {
+  font-size: 12px;
+  color: #888;
+}
